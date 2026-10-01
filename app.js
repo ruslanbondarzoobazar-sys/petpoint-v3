@@ -1,5 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+import {
+getDatabase,
+ref,
+set
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
  
 const firebaseConfig = {
 apiKey: "AIzaSyBccU9T60QnMwcOKOvzh0xp871j7_qy5kQ",
@@ -18,5 +22,9 @@ set(ref(db, "system"), {
 status: "online",
 version: "3.0"
 })
-.then(() => console.log("✅ Данные записаны в Firebase"))
-.catch((error) => console.error("❌ Firebase ошибка:", error));
+.then(() => {
+console.log("✅ Данные записаны в Firebase");
+})
+.catch((error) => {
+console.error("❌ Ошибка Firebase:", error);
+});
