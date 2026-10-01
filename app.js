@@ -19,23 +19,38 @@ appId: "1:647316543558:web:841c3c8230bc21f3171247"
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
  
-// Запись данных
- 
-set(ref(db, "system"), {
+const petPointStructure = {
+system: {
 status: "online",
 version: "3.0"
-})
+},
+ 
+products: {},
+ 
+categories: {},
+ 
+stock: {},
+ 
+sales: {},
+ 
+clients: {},
+ 
+employees: {},
+ 
+logs: {}
+};
+ 
+set(ref(db), petPointStructure)
 .then(() => {
-console.log("✅ Данные записаны в Firebase");
+console.log("✅ Структура PetPoint v3 создана");
  
-// Чтение данных после записи
- 
-return get(ref(db, "system"));
+return get(ref(db));
 })
 .then((snapshot) => {
-console.log("📦 Данные считаны из Firebase:");
+console.log("📦 База данных:");
 console.log(snapshot.val());
 })
 .catch((error) => {
-console.error("❌ Ошибка Firebase:", error);
+console.error("❌ Ошибка:", error);
 });
+``
